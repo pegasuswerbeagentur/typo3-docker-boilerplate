@@ -1,0 +1,5 @@
+/app/web/*.log
+/app/vendor/*
+/app/web/typo3temp/*
+/app/web/typo3/*
+/app/web/fileadmin/*
