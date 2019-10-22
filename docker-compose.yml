@@ -1,0 +1,100 @@
+version: "3.2"
+services:
+
+  #######################################
+  # PHP
+  #######################################
+
+  php:
+    build: 
+      context: './docker/php/'
+      args:
+       PHP_VERSION: ${PHP_VERSION}
+    networks:
+      - backend
+    volumes:
+      - ./app/:/app/
+    container_name: php_${PROJECT_NAME}
+
+  #######################################
+  # Apache
+  #######################################    
+
+  apache:
+    build:
+      context: './docker/apache/'
+      args:
+       APACHE_VERSION: ${APACHE_VERSION}
+    depends_on:
+      - php
+      - mysql
+    networks:
+      - frontend
+      - backend
+    ports:
+      - "8000:80"
+    volumes:
+      - ./app/:/app/
+    container_name: apache_${PROJECT_NAME}
+
+  #######################################
+  # MySQL
+  #######################################
+
+  mysql:
+    build:
+      context: './docker/mysql/'
+      args:
+       MYSQL_VERSION: ${MYSQL_VERSION}
+    restart: always
+    expose:
+      - "3306"
+    volumes:
+      - data:/var/lib/mysql
+    networks:
+      - backend
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_DATABASE: "${MYSQL_DATABASE}"
+      MYSQL_USER: "${MYSQL_USER}"
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+    container_name: mysql_${PROJECT_NAME}
+
+  #######################################
+  # Mailhog
+  #######################################
+  
+  mail:
+    image: mailhog/mailhog
+    ports:
+     - 8025:8025
+    container_name: mailhog_${PROJECT_NAME}
+    depends_on:
+      - php
+      - apache
+
+  #######################################
+  # phpMyAdmin
+  #######################################
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: pma_${PROJECT_NAME}
+    networks:
+      - backend
+      - frontend
+    environment:
+      PMA_HOST: ${PMA_HOST}
+      PMA_PORT: ${PMA_PORT}
+    ports:
+      - '8181:80'
+    depends_on:
+      - php
+      - mysql
+      - apache
+  
+networks:
+  frontend:
+  backend:
+volumes:
+    data:
