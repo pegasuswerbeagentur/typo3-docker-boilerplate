@@ -13,5 +13,8 @@
             "cms-package-dir": "{$vendor-dir}/typo3/cms",
             "web-dir": "./web"
         }
+    },
+    "require": {
+        "typo3/minimal": "^9.5"
     }
 }
