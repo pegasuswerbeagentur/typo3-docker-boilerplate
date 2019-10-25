@@ -8,7 +8,7 @@
             "request": "launch",
             "port": 9000,
             "pathMappings": {
-                "/app/web": "${workspaceFolder}/app/web"
+                "/app": "${workspaceFolder}/app"
             }
         }, {
             "name": "Launch currently open script",
