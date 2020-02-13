@@ -9,3 +9,4 @@
 /app/web/typo3conf/PackageStates.php
 /app/web/typo3conf/ext/*
 /app/logs/*
+/backup/database/db.sql

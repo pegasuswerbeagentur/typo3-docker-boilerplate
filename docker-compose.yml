@@ -53,6 +53,7 @@ services:
       - "3306"
     volumes:
       - data:/var/lib/mysql
+      - ./backup/database/:/backup/
     networks:
       - backend
     environment:
