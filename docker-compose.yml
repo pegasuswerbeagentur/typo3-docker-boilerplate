@@ -15,6 +15,8 @@ services:
     volumes:
       - ./app/:/app/
     container_name: php_${PROJECT_NAME}
+    environment:
+      TYPO3_CONTEXT: ${TYPO3_CONTEXT}
 
   #######################################
   # Apache
