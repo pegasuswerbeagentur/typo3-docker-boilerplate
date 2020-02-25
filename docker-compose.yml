@@ -81,7 +81,10 @@ services:
   #######################################
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
+    build:
+      context: './docker/phpmyadmin/'
+      args:
+        PMA_VERSION: ${PMA_VERSION}
     container_name: pma_${PROJECT_NAME}
     networks:
       - backend
