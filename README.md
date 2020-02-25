@@ -1,18 +1,32 @@
-TYPO3 Docker Boilerplate: PHP/Apache/MySQL/PMA/Mailhog
+TYPO3 Docker Boilerplate: PHP/Apache/MySQL/phpMyAdmin/Mailhog
 ======================================================
-- [TYPO3 Docker Boilerplate: PHP/Apache/MySQL/PMA/Mailhog](#typo3-docker-boilerplate-phpapachemysqlpmamailhog)
+- [TYPO3 Docker Boilerplate: PHP/Apache/MySQL/phpMyAdmin/Mailhog](#typo3-docker-boilerplate-phpapachemysqlphpmyadminmailhog)
 - [Usage](#usage)
+  - [Requirements](#requirements)
   - [Setup](#setup)
   - [Make commands](#make-commands)
     - [make db-backup:](#make-db-backup)
     - [make db-restore:](#make-db-restore)
+    - [make db-restore:](#make-db-restore-1)
 # Usage
+## Requirements
+- docker
+- docker-compose
+- composer
+- make
 ## Setup
-- clone git repository into current folder: `git clone https://github.com/pegasuswerbeagentur/typo3-docker-boilerplate.git`
-- change default environment variable in .env file
-- build docker containers: `docker-compose up -d --build`
-- cd into app folder: `cd app`
-- run `composer install`
+- create project folder and cd into it:
+`[~]$ mkdir new-project`
+`[~]$ cd new-project`
+- clone git repository into current folder:
+`[~/new-project]$ git clone https://github.com/pegasuswerbeagentur/typo3-docker-boilerplate.git .`
+- change default environment variable values in .env file to your needs
+- build docker containers:
+`[~/new-project]$ sudo docker-compose up -d --build`
+- cd into app folder:
+`[~/new-project]$ cd app`
+- run composer installation:
+`[~/new-project/app]$ composer install` 
 
 ## Make commands
 ### make db-backup:
@@ -20,3 +34,6 @@ TYPO3 Docker Boilerplate: PHP/Apache/MySQL/PMA/Mailhog
 
 ### make db-restore:
 - import database from backup/database.db.sql  
+
+### make db-restore:
+- import database from backup/database.db.sql 
