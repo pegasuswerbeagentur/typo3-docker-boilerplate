@@ -7,7 +7,7 @@ TYPO3 Docker Boilerplate: PHP/Apache/MySQL/phpMyAdmin/Mailhog
   - [Make commands](#make-commands)
     - [make db-backup:](#make-db-backup)
     - [make db-restore:](#make-db-restore)
-    - [make db-restore:](#make-db-restore-1)
+    - [make zip-project:](#make-zip-project)
 # Usage
 ## Requirements
 - docker
@@ -30,10 +30,11 @@ TYPO3 Docker Boilerplate: PHP/Apache/MySQL/phpMyAdmin/Mailhog
 
 ## Make commands
 ### make db-backup:
-- create typo3 database backup and save it to backup/database.db.sql
+- create typo3 database backup and save it to backup/database/db.sql
 
 ### make db-restore:
-- import database from backup/database.db.sql  
+- import database from backup/database/db.sql  
 
-### make db-restore:
-- import database from backup/database.db.sql 
+### make zip-project:
+- create zip file of the project and save it to backup/files/project.zip
+- maintains symlinks
