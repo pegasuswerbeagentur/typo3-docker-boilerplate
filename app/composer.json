@@ -1,4 +1,6 @@
 {
+    "name": "pegasus/typo3",
+	"description": "TYPO3 CMS is a free open source Content Management Framework initially created by Kasper Skaarhoj and licensed under GNU/GPL.",
     "config": {
         "vendor-dir": "./vendor",
         "sort-packages": true
