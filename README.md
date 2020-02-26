@@ -16,17 +16,22 @@ TYPO3 Docker Boilerplate: PHP/Apache/MySQL/phpMyAdmin/Mailhog
 - make
 ## Setup
 - create project folder and cd into it:
-`[~]$ mkdir new-project`
-`[~]$ cd new-project`
+  - `[~]$ mkdir new-project`
+  - `[~]$ cd new-project`
 - clone git repository into current folder:
-`[~/new-project]$ git clone https://github.com/pegasuswerbeagentur/typo3-docker-boilerplate.git .`
+  - `[~/new-project]$ git clone https://github.com/pegasuswerbeagentur/typo3-docker-boilerplate.git .`
+- set new git origin for the project to push the local repository to:
+  - `[~/new-project]$ git remote set-url origin https://github.com/user/repo.git`
+  - `[~/new-project]$ git push`   
 - change default environment variable values in .env file to your needs
 - build docker containers:
-`[~/new-project]$ sudo docker-compose up -d --build`
+  - `[~/new-project]$ sudo docker-compose up -d --build`
 - cd into app folder:
-`[~/new-project]$ cd app`
+  - `[~/new-project]$ cd app`
 - run composer installation:
-`[~/new-project/app]$ composer install` 
+  - `[~/new-project/app]$ composer install` 
+- open browser and set up TYPO3: https://localhost:8000
+
 
 ## Make commands
 ### make db-backup:
