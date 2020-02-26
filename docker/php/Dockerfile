@@ -30,7 +30,8 @@ RUN apk update \
     && docker-php-ext-install opcache \
     && apk add --no-cache $PHPIZE_DEPS \
     && pecl install xdebug \
-    && docker-php-ext-enable xdebug
+    && docker-php-ext-enable xdebug \
+    && apk add graphicsmagick
 
 COPY development.ini /usr/local/etc/php/conf.d
 
