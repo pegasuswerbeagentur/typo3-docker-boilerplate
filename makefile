@@ -9,3 +9,6 @@ db-restore:
 
 zip-project:
 	sh ./scripts/zip_project.sh
+
+init_project:
+	sh ./scripts/init_project.sh
