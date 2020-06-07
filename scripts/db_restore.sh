@@ -1,5 +1,6 @@
-# IMPORTANT: run scripts from project root 
+#!/bin/bash
 
+# IMPORTANT: run scripts from project root 
 # import environment variables 
 export $(grep -v '^#' .env | xargs)
 
