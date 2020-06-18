@@ -18,18 +18,20 @@ printf "${GREEN}Dumping database from remote server to local file...${NC}\n"
 # connect to remote via ssh, make datebase dump and save it to local file
 ssh $SSH_USER@$SSH_HOST "mysqldump -v -u$LIVE_DB_USER -p"\"$LIVE_DB_PASSWORD\"" -h$LIVE_DB_HOST $LIVE_DB_NAME" > $FOLDER_PATH/DB/db.sql
 printf "${GREEN}Database dump completed!${NC}\n"
-# zip database dump
-zip $FOLDER_PATH/DB/db.sql.zip $FOLDER_PATH/DB/db.sql
-# remove sql file
-rm $FOLDER_PATH/DB/db.sql
 # create site folder
 mkdir "$FOLDER_PATH/Site"
 printf "${GREEN}Starting to rsync remote files to local backup folder...${NC}\n"
 # rsync contents of app folder from remote to local project
 rsync -chavzP --stats $SSH_USER@$SSH_HOST:$ABSOLUTE_PATH_TO_PROJECT_ROOT/ $FOLDER_PATH/Site/
 printf "${GREEN}Rsync completed!${NC}\n"
+# zip database dump
+cd $FOLDER_PATH/DB
+pwd
+zip db.sql.zip db.sql
+# remove sql file
+rm db.sql
 # zip files
-cd $FOLDER_PATH/Site
+cd ../Site
 zip -ry site.zip .
 # cleanup
 find . \! -name 'site.zip' -delete
