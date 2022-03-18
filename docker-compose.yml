@@ -17,6 +17,9 @@ services:
     container_name: php_${PROJECT_NAME}
     environment:
       TYPO3_CONTEXT: ${TYPO3_CONTEXT}
+      XDEBUG_CONFIG: client_host=host.docker.internal
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   #######################################
   # Apache
