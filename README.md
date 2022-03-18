@@ -12,7 +12,7 @@ TYPO3 Docker Boilerplate: PHP/Apache/MySQL/phpMyAdmin/Mailhog
     - [make zip-project:](#make-zip-project)
 # Usage
 ## Requirements
-- docker
+- docker > 20.0.0
 - docker-compose
 - composer
 - make
@@ -33,10 +33,8 @@ TYPO3 Docker Boilerplate: PHP/Apache/MySQL/phpMyAdmin/Mailhog
   - set set database connection of remote typo3 (found in LocalConfiguration.php on remote server)
 - build docker containers:
   - `[~/new-project]$ sudo docker-compose up -d --build`
-- cd into app folder:
-  - `[~/new-project]$ cd app`
 - run composer installation:
-  - `[~/new-project/app]$ composer install` 
+  - `[~/new-project/app]$ composer create-project typo3/cms-base-distribution:^11 app` 
 - open browser and set up TYPO3: http://localhost:8000
 
 ## Make commands
